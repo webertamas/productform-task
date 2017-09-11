@@ -26,10 +26,35 @@ namespace WpfApp4
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
-            if (((ProductFormViewModel)DataContext).Validate())
-                Close();
-            else
-                MessageBox.Show("HIBA");
+            String textName = nameTextBox.Text;
+            int error;
+            
+            if (string.IsNullOrEmpty(textName))
+            {
+                MessageBox.Show("Nem írtál nevet", "Hiba!");
+                return;
+            }
+            if (!(int.TryParse(priceTextBox.Text, out error)))
+            {
+                MessageBox.Show("Az ár csak szám lehet", "Hiba!");
+                return;
+            }
+            if (int.Parse(priceTextBox.Text) == 0)
+            {
+                MessageBox.Show("Az ár nullánál nagyobb legyen", "Hiba!");
+                return;
+            }
+            if (!(int.TryParse(quantityTextBox.Text, out error)))
+            {
+                MessageBox.Show("A mennyiség csak szám lehet", "Hiba!");
+                return;
+            }
+            if (int.Parse(quantityTextBox.Text) == 0)
+            {
+                MessageBox.Show("A mennyiség nullánál nagyobb legyen", "Hiba!");
+                return;
+            }
+            DialogResult = false;
         }
     }
 }

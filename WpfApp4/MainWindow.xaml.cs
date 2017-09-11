@@ -44,7 +44,7 @@ namespace WpfApp4
                 .Product
                 .Add(vm.Product);
 
-                                }
+            }
 
  
         }
@@ -69,14 +69,16 @@ namespace WpfApp4
 
         private void DeleteClick(object sender, RoutedEventArgs e)
         {
-            
 
-            if ((MainViewModel)DataContext).SelectedProduct != null && MessageBox.Show("Biztosan szeretnéd törölni?","Törlés",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            var target = ((MainViewModel)DataContext).SelectedProduct;
+            if (target != null)
             {
-                _products.Remove(
-                    (Product)(MainViewModel)DataContext).SelectedProduct;
-                    );
-                
+                if (MessageBox.Show("Biztosan szeretnéd törölni?","Törlés",MessageBoxButton.YesNo) == MessageBoxResult.Yes))
+                    {
+                    ((MainViewModel)DataContext)
+                    .Product
+                    .Remove(target);
+                }
             }
 
             else
@@ -85,5 +87,5 @@ namespace WpfApp4
             }
         }
     }
-    }
+    
 }
