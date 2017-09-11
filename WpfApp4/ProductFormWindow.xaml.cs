@@ -23,5 +23,10 @@ namespace WpfApp4
         {
             InitializeComponent();
         }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

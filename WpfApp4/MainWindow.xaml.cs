@@ -25,5 +25,13 @@ namespace WpfApp4
         {
             InitializeComponent();
         }
+
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+            var vm = new ProductFormViewModel
+            {
+                Product = new Product()
+            };
+        }
     }
 }

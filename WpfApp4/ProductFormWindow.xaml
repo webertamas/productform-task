@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="ProductFormWindow" Height="300" Width="267.227">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="39" Margin="20,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221"/>
-        <TextBox HorizontalAlignment="Left" Height="39" Margin="20,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221"/>
-        <TextBox HorizontalAlignment="Left" Height="39" Margin="20,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="221"/>
-        <Button Content="Mentés" HorizontalAlignment="Left" Margin="94,201,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="39" Margin="20,41,0,0" TextWrapping="Wrap" Text="{Binding Product.Name}" VerticalAlignment="Top" Width="221"/>
+        <TextBox HorizontalAlignment="Left" Height="39" Margin="20,85,0,0" TextWrapping="Wrap" Text="{Binding Product.Price}" VerticalAlignment="Top" Width="221"/>
+        <TextBox HorizontalAlignment="Left" Height="39" Margin="20,129,0,0" TextWrapping="Wrap" Text="{Binding Product.Quantity}" VerticalAlignment="Top" Width="221"/>
+        <Button Content="Mentés" HorizontalAlignment="Left" Margin="94,201,0,0" VerticalAlignment="Top" Width="75" Click="SaveClick"/>
 
     </Grid>
 </Window>

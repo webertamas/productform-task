@@ -8,8 +8,20 @@ namespace WpfApp4
 {
     class Product
     {
-        public string Name { get; set; }
+        string _name;
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChange();
+            }
+        }
+
+
         public double Price { get; set; }
         public double Quantity { get; set; }
     }
+
 }
