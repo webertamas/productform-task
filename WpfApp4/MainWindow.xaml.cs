@@ -24,6 +24,7 @@ namespace WpfApp4
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
 
         private void AddClick(object sender, RoutedEventArgs e)
@@ -32,6 +33,57 @@ namespace WpfApp4
             {
                 Product = new Product()
             };
+            var form = new ProductFormWindow
+            {
+                DataContext = vm
+            };
+            form.ShowDialog();
+            if(vm.Validate())
+            {
+                ((MainViewModel)DataContext)
+                .Product
+                .Add(vm.Product);
+
+                                }
+
+ 
         }
+
+        private void EditClick(object sender, RoutedEventArgs e)
+        {
+            var target = ((MainViewModel)DataContext).SelectedProduct;
+            if (target == null)
+                return;
+            var vm = new ProductFormViewModel
+            {
+                Product = target
+            };
+            var form = new ProductFormWindow
+            {
+                DataContext = vm
+            };
+            form.ShowDialog();
+
+         
+        }
+
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            
+
+            if ((MainViewModel)DataContext).SelectedProduct != null && MessageBox.Show("Biztosan szeretnéd törölni?","Törlés",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                _products.Remove(
+                    (Product)(MainViewModel)DataContext).SelectedProduct;
+                    );
+                
+            }
+
+            else
+            {
+                MessageBox.Show("Nincs semmi kiválasztva");
+            }
+        }
+    }
     }
 }

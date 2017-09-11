@@ -26,7 +26,10 @@ namespace WpfApp4
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
-
+            if (((ProductFormViewModel)DataContext).Validate())
+                Close();
+            else
+                MessageBox.Show("HIBA");
         }
     }
 }

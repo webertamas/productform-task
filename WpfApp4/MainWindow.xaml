@@ -8,14 +8,18 @@
         Title="MainWindow" Height="350" Width="489.706">
     <Grid>
         <Button Content="Hozzáadás" HorizontalAlignment="Left" Margin="401,45,0,0" VerticalAlignment="Top" Width="75" Click="AddClick"/>
-        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="401,70,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Törlés" HorizontalAlignment="Left" Margin="401,95,0,0" VerticalAlignment="Top" Width="75"/>
-        <ListView HorizontalAlignment="Left" Height="277" Margin="21,22,0,0" VerticalAlignment="Top" Width="319">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="401,70,0,0" VerticalAlignment="Top" Width="75" Click="EditClick"/>
+        <Button Content="Törlés" HorizontalAlignment="Left" Margin="401,95,0,0" VerticalAlignment="Top" Width="75" Click="DeleteClick"/>
+        <ListView SelectedItem="{Binding SelectedProduct}" ItemsSource="{Binding Product}" HorizontalAlignment="Left" Height="277" Margin="21,22,0,0" VerticalAlignment="Top" Width="319">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Name}"/>
+                        <Label Content="{Binding Price}"/>
+                        <Label Content="{Binding Quantity}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListView>
 
     </Grid>
